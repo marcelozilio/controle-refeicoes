@@ -13,7 +13,7 @@ class ConnecitonDataBase extends PDO{
 			/* Cria e retorna uma nova conexão*/
 			self::$connection = new ConnecitonDataBase("mysql:dbname=refeicao;host=localhost","root","");
 		}catch(Exception $ex){
-			echo 'Erro ao tentar conectar-se ao banco de dados.';
+			echo 'Erro ao tentar conectar-se ao banco de dados!';
 		    exit();
 		}
 	}

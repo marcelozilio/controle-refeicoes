@@ -5,7 +5,7 @@
 	@since: 04/12/2017 - 13:12
 */
 interface IDAO{
-	public function save();
+	public function save($object);
 	public function find($cod);
 	public function findAll();
 	public function delete($cod);
