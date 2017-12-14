@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Nova Refeição</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="css/style2.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Controle de Refeição</h3>
+            </div>
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="index.html">Início</a>
+                </li>
+                <li>
+                    <a href="NovaPessoa.html">Nova Pessoa</a>
+                </li>
+                <li>
+                    <a href="NovaInstituicao.html">Nova Instituição</a>
+                </li>
+                <li>
+                    <a href="NovaRefeicao.html">Nova Refeição</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- Page Content Holder -->
+        <div id="content">
+            <div class="container-fluid">
+                <form method="POST" action="#" enctype="multipart/form-data">
+                    <div class="form-group col-xs-6 col-xs-offset-3">
+                        <h2 class="form-signin-heading">Nova refeição.</h2>
+                    </div>                    
+                    <div class="form-group col-xs-6 col-xs-offset-3">
+                        <label for="inputDesc" class="sr-only">Descrição</label>
+                        <input type="text" id="inputDesc" name="descricao" class="form-control" placeholder="Descrição da refeição" required autofocus>
+                    </div>
+                    <div class="form-group col-xs-6 col-xs-offset-3">
+                        <label for="inputData" class="sr-only">Data</label>
+                        <input type="date" id="inputData" class="form-control" name="nasc" required>
+                    </div>
+                    <div class="form-group col-xs-6 col-xs-offset-3">
+                        <label for="selectInstituicao" class="sr-only">Instituição</label>
+                        <select class="form-control" name="voce" for="selectInstituicao">
+                            <option>Instituição 1</option>
+                            <option>Instituição 2</option>
+                            <option>Instituição 3</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-xs-6 col-xs-offset-3">
+                        <label for="exampleInputFile">Foto da Refeição</label>
+                        <input type="file" name="file[]" id="rgecpf" required>
+                    </div>
+                    <div class="form-group col-xs-6 col-xs-offset-3"> 
+                        <button class="btn btn-lg btn-success btn-block" type="submit" href="#">Salvar</button>
+                    </div>                
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <!-- Bootstrap Js CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

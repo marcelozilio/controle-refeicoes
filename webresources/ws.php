@@ -3,7 +3,6 @@ header('Access-Control-Allow-Origin: *');
 require '../Slim/Slim.php';
 require '../service/instituicaoservice.php';
 
-
 \Slim\Slim::registerAutoloader();
 $app = new \Slim\Slim();
 $app->response()->header('Content-Type', 'application/json');
@@ -13,12 +12,12 @@ $app->get('/', function(){
 });
 
 /*
-	Serviços da Instituição
+Serviços da Instituição
 */
 $app->group('/instituicao',function() use ($app){	
-		
+
 	$app->post('/save', function() use ($app) {
-		
+
 		$request = $app->request();
 		$chamado = json_decode($request->getBody());
 
