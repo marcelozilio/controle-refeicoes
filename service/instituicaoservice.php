@@ -1,5 +1,6 @@
 <?php
-include '../dao/instituicaodao.class.php';
+require '../dao/instituicaodao.class.php';
+require '../interfaces/iservice.class.php';
 class InstituicaoService implements IService{
 
 	public function save($object){

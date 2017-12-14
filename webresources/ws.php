@@ -1,7 +1,7 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 require '../Slim/Slim.php';
-include '/service/instituicaoservice.php';
+require '../service/instituicaoservice.php';
 
 
 \Slim\Slim::registerAutoloader();
@@ -31,6 +31,7 @@ $app->group('/instituicao',function() use ($app){
 	});
 
 	$app->get('/delete/:id', function($id) {
+
 	});
 });
 

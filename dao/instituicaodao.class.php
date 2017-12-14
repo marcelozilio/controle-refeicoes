@@ -1,5 +1,6 @@
 <?php
-include '../persistence/connectiondatabase.class.php';
+require '../persistence/connectiondatabase.php';
+require '../interfaces/idao.class.php';
 class InstituicaoDAO implements IDAO{
 
 	private $connection=null;
