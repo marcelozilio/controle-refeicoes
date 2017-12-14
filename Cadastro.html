@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="PT-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <title>Signin Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->   
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/signin.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <form class="form-signin">
+            <div class="form-group col-xs-12">
+                <h2 class="form-signin-heading">Criar nova conta.</h2>  
+            </div>
+            <div class="form-group col-xs-12">
+                <label for="inputEmail" class="sr-only">Email</label>
+                <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>  
+            </div>
+            <div class="form-group col-xs-12">
+                <label for="inputNome" class="sr-only">Nome</label>
+                <input type="name" id="inputNome" name="nome" class="form-control" placeholder="Seu nome" required >
+            </div>
+            <div class="form-group col-xs-12">
+                <label for="inputPassword" class="sr-only">Senha</label>
+                <input type="password" id="inputPassword" name="senha" class="form-control" placeholder="Password" required>
+            </div>
+            <div class="form-group col-xs-12">
+                <label for="inputTelefone" class="sr-only">Telefone</label>
+                <input type="text" id="inputTelefone" name="telefone" class="form-control" placeholder="Seu telefone" pattern="\([0-9]{2}\)[0-9]{4,6}-[0-9]{3,4}$" required>
+            </div>
+            <div class="form-group col-xs-12">
+                <label for="inputEnd" class="sr-only">Endereço</label>
+                <input type="text" id="inputEnd" name="endereco" class="form-control" placeholder="Endereço" required >
+            </div>
+            <div class="form-group col-xs-12">
+                <label for="selectVoce" class="sr-only">Você é ?</label>
+                <select class="form-control" name="voce" for="selectVoce">
+                    <option>Instituição</option>
+                    <option>Pessoa</option>
+                </select>
+            </div>
+            <div class="form-group col-xs-12">            
+                <button class="btn btn-lg btn-primary btn-block" type="submit" href="#">Salvar</button>
+            </div>
+        </form>
+    </div> <!-- /container -->
+</body>
+</html>
