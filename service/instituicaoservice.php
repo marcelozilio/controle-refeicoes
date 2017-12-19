@@ -10,13 +10,13 @@ class InstituicaoService implements IService{
 
 	public function find($cod){
 		$iDAO = new InstituicaoDAO();
-		$array = &iDAO->find($cod);
+		$array = $iDAO->find($cod);
 		return $array;
 	}
 
 	public function findAll(){
 		$iDAO = new InstituicaoDAO();
-		$array = &iDAO->findAll();
+		$array = $iDAO->findAll();
 		return $array;
 	}
 

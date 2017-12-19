@@ -26,7 +26,9 @@ $app->group('/instituicao',function() use ($app){
 	});
 
 	$app->get('/findAll', function(){
-		echo '[{"nome"="ABCDE","rua"="Teste, 123","email"="email@email.com","telefone"="5134880188"}]';
+		$instituicaoService = new InstituicaoService();
+		$instituicoes = $instituicaoService->findAll();		
+		echo json_encode($instituicoes);
 	});
 
 	$app->get('/delete/:id', function($id) {

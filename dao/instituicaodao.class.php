@@ -1,11 +1,12 @@
 <?php
 require '../persistence/connectiondatabase.php';
 require '../interfaces/idao.class.php';
+require '../model/instituicao.class.php';
 class InstituicaoDAO implements IDAO{
 
 	private $connection=null;
 	
-	public function __construct(){		
+	public function __construct(){
 		$this->connection = ConnectionDataBase::getConnection();   
 	}
 
@@ -28,9 +29,8 @@ class InstituicaoDAO implements IDAO{
 	public function find($cod){
 		try{
 			$stat = $this->connection->query("select * from instituicao where id = $cod");
-
 		  	$instituicao = $stat->fetchObject('Instituicao');
-		  	return $instituicao;	
+		  	return $instituicao;
 		}catch(PDOException $ex){
 			echo 'Erro ao buscar Instituição!';
 		}
@@ -38,10 +38,9 @@ class InstituicaoDAO implements IDAO{
 
 	public function findAll(){
 		try{
-			$stat = $this->connection->query("select * from instituicao");
-
+			$stat = $this->connection->query("SELECT * from instituicao");
 			$array = array();
-			$array = $stat->fetchAll(PDO::FETCH_CLASS,'Instituicao');
+			$array = $stat->fetchAll(PDO::FETCH_OBJ);
 			$this->connection = null;
 			return $array;
 		}catch(PDOException $ex){

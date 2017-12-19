@@ -11,9 +11,8 @@
     <link rel="stylesheet" href="css/style2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 </head>
-<body ng-controller="IntituicaoController as ctrl">
+<body ng-controller="InstituicaoController as ctrl">
     <div class="wrapper">
-        <!-- Sidebar Holder -->
         <nav id="sidebar">
             <div class="sidebar-header">
                 <h3>Controle de Refeição</h3>
@@ -26,7 +25,7 @@
                     <a href="NovaPessoa.html">Nova Pessoa</a>
                 </li>
                 <li>
-                    <a href="NovaInstituicao.html">Nova Instituição</a>
+                    <a href="Instituicoes.html">Instituições</a>
                 </li>
                 <li>
                     <a href="NovaRefeicao.html">Nova Refeição</a>
@@ -57,9 +56,9 @@
                         <input type="text" id="inputEnd" name="endereco" ng-model="ctrl.instituicao.endereco" class="form-control" placeholder="Endereço" required >
                     </div>                    
                     <div class="form-group col-xs-6 col-xs-offset-3">            
-                        <button class="btn btn-lg btn-success btn-block" ng-click="ctrl.salvar()">Salvar</button>
+                        <button class="btn btn-lg btn-success btn-block" ng-click="ctrl.save()">Salvar</button>
                     </div>
-                </form>
+                </form>                
             </div>
         </div>
     </div>
