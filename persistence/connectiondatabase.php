@@ -11,7 +11,7 @@ class ConnectionDataBase extends PDO{
    	if (!isset(self::$connection)){
 		try{
 			/* Cria e retorna uma nova conexão*/
-			self::$connection = new ConnectionDataBase("mysql:dbname=refeicoes;host=localhost","root","");
+			self::$connection = new ConnectionDataBase("mysql:dbname=refeicoes;host=localhost","root","root");
 		}catch(Exception $ex){
 			echo 'Erro ao tentar conectar-se ao banco de dados!';
 		    exit();

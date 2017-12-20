@@ -1,18 +1,19 @@
 <?php
-class Instituicao {
-	
+class Pessoa {
+
 	private $id;
+	private $idInstituicao;
 	private $nome;
 	private $endereco;
 	private $email;
-	private $telefone;
-		
+	private $celular;
+
 	public function __construct(){
 	}
 
-	public function Usuario(){
+	public function Pessoa(){
 	}
-	
+
 	public function __get($atrib){
 		return $this->$atrib;
 	}	
@@ -21,10 +22,11 @@ class Instituicao {
 	}
 	public function __toString(){
 		return '<br />Codigo: '.$this->id.
-			   '<br />Nome: '.$this->nome.
-		  	   '<br />Endereco: '.$this->endereco.
-		  	   '<br />E-mail: '.$this->email.
-        	   '<br />Telefone: '.$this->telefone;
+		'<br />idInstituicao: '.$this->idInstituicao.
+		'<br />Nome: '.$this->nome.
+		'<br />Endereco: '.$this->endereco.
+		'<br />E-mail: '.$this->email.
+		'<br />Celular: '.$this->celular;
 	}
 }
 ?>

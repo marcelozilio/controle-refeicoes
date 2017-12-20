@@ -1,8 +1,8 @@
 <?php
 require '../persistence/connectiondatabase.php';
-require '../interfaces/idao.class.php';
-require '../model/instituicao.class.php';
-class InstituicaoDAO implements IDAO{
+require '../interfaces/irepository.php';
+require '../model/instituicao.php';
+class InstituicaoRepository implements IRepository{
 
 	private $connection=null;
 	
@@ -21,8 +21,9 @@ class InstituicaoDAO implements IDAO{
 			
 			$stat->execute();
 			$this->connection = null;
+			return 'Instituição cadastrada!';
 		}catch(PDOException $ex){
-			echo 'Erro ao cadastrar Instituição!';
+			return 'Erro ao cadastrar Instituição!';
 		}
 	}
 
@@ -32,7 +33,7 @@ class InstituicaoDAO implements IDAO{
 		  	$instituicao = $stat->fetchObject('Instituicao');
 		  	return $instituicao;
 		}catch(PDOException $ex){
-			echo 'Erro ao buscar Instituição!';
+			return 'Erro ao buscar Instituição!';
 		}
 	}
 
@@ -44,16 +45,16 @@ class InstituicaoDAO implements IDAO{
 			$this->connection = null;
 			return $array;
 		}catch(PDOException $ex){
-			echo 'Erro ao buscar Instituições!';
+			return 'Erro ao buscar Instituições!';
 		}
 	}
 
 	public function delete($cod){
-		echo "TODO";
+		return "TODO";
 	}
 
 	public function update($object){
-		echo "TODO";
+		return "TODO";
 	}
 }
 ?>

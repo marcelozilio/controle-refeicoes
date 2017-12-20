@@ -1,22 +1,22 @@
 <?php
-require '../repository/instituicaorepository.php';
+require '../repository/pessoarepository.php';
 require '../interfaces/iservice.php';
 class InstituicaoService implements IService{
 
 	public function save($object){
-		$iRepository = new InstituicaoRepository();
-		return $iRepository->save($object);
+		$pRepository = new PessoaRepository();
+		$pRepository->save($object);
 	}
 
 	public function find($cod){
-		$iRepository = new InstituicaoRepository();
-		$array = $iRepository->find($cod);
+		$pRepository = new PessoaRepository();
+		$array = $pRepository->find($cod);
 		return $array;
 	}
 
 	public function findAll(){
-		$iRepository = new InstituicaoRepository();
-		$array = $iRepository->findAll();
+		$pRepository = new PessoaRepository();
+		$array = $pRepository->findAll();
 		return $array;
 	}
 

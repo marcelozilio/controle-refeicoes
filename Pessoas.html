@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Instituições</title>
+    <title>Pessoas</title>
     <script src="js/angular.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 </head>
-<body ng-controller="ListInstituicaoController as ctrl">
+<body ng-controller="ListPessoaController as ctrl">
     <div class="wrapper">
         <nav id="sidebar">
             <div class="sidebar-header">
@@ -36,10 +36,10 @@
         <div id="content">
             <div class="container-fluid">                
                 <div class="form-group col-xs-6 col-xs-offset-3">
-                    <h2 class="form-signin-heading">Lista de instituições.</h2>  
+                    <h2 class="form-signin-heading">Lista de pessoas.</h2>  
                 </div>
                 <div class="form-group col-xs-2 col-xs-offset-10">
-                    <a href="NovaInstituicao.html" class="btn btn-default btn-primary btn-block">Nova Instituição</a>
+                    <a href="NovaPessoa.html" class="btn btn-default btn-primary btn-block">Nova Pessoa</a>
                 </div>
                 <div class="form-group col-xs-12">                    
                     <input type="text" name="pesquisa" class="form-control" placeholder="O que você está procurando?" />
@@ -47,16 +47,16 @@
                         <thead>
                             <th>Nome</th>
                             <th>E-mail</th>
-                            <th>Telefone</th>
+                            <th>Celular</th>
                             <th>Endereço</th>
                             <th>Ações</th>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="i in ctrl.instituicoes">
-                            <td>{{i.nome}}</td>
-                            <td>{{i.email}}</td>
-                            <td>{{i.telefone}}</td>
-                            <td>{{i.endereco}}</td>
+                            <tr ng-repeat="p in ctrl.pessoas">
+                            <td>{{p.nome}}</td>
+                            <td>{{p.email}}</td>
+                            <td>{{p.celular}}</td>
+                            <td>{{p.endereco}}</td>
                             <td style="width: 130px">
                                 <a href="NovaInstituicao.html" class="btn btn-sm btn-warning glyphicon glyphicon-pencil"></a>
                                 <a href="NovaInstituicao.html" class="btn btn-sm btn-danger glyphicon glyphicon-trash"></a>

@@ -4,7 +4,7 @@
 	@author: Marcelo Zilio Correa
 	@since: 04/12/2017 - 13:12
 */
-interface IDAO{
+interface IRepository{
 	public function save($object);
 	public function find($cod);
 	public function findAll();

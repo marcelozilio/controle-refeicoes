@@ -25,8 +25,8 @@ create table refeicao(
 	id int auto_increment,
 	idInstituicao int not null,
 	descricao varchar(100) not null,
-	dataCadastro timestamp not null,
-	dataRefeicao timestamp not null,
+	dataCadastro datetime not null,
+	dataRefeicao datetime not null,
 	primary key (id),
 	foreign key (idInstituicao) references instituicao(id)
 );
