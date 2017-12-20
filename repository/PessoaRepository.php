@@ -1,19 +1,20 @@
 <?php
-require '../persistence/connectiondatabase.php';
-require '../interfaces/irepository.php';
-require '../model/pessoa.php';
+require_once '../persistence/ConnectionDataBase.class.php';
+require_once '../interfaces/IRepository.php';
+require '../model/Pessoa.php';
+
 class PessoaRepository implements IRepository{
 
 	private $connection=null;
 
-	public function __construct(){
+	public function __construct(){		
 		$this->connection = ConnectionDataBase::getConnection();
 	}
 
 	public function save($object){
 		try{
-			$stat=$this->connection->prepare("insert into instituicao(id,idInstituicao,nome,endereco,email,celular)values(null,?,?,?,?,?)");
-
+			$stat=$this->connection->prepare("insert into pessoa(id,idInstituicao,nome,endereco,email,celular)values(null,?,?,?,?,?)");		
+			
 			$stat->bindValue(1,$object->idInstituicao);
 			$stat->bindValue(2,$object->nome);
 			$stat->bindValue(3,$object->endereco);
@@ -28,9 +29,9 @@ class PessoaRepository implements IRepository{
 		}
 	}
 
-	public function find($cod){
+	public function find($id){
 		try{
-			$stat = $this->connection->query("select * from pessoa where id = $cod");
+			$stat = $this->connection->query("select * from pessoa where id = $id");
 			$pessoa = $stat->fetchObject('Pessoa');
 			return $pessoa;
 		}catch(PDOException $ex){
@@ -50,7 +51,7 @@ class PessoaRepository implements IRepository{
 		}
 	}
 
-	public function delete($cod){
+	public function delete($id){
 		return "TODO";
 	}
 

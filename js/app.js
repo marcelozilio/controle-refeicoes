@@ -1,5 +1,5 @@
 angular.module("Refeicoes", [])
-.value('urlBase', 'http://localhost/ControleRefeicoes/webresources/ws.php/')
+.value('urlBase', 'http://localhost:8080/ControleRefeicoes/webresources/ws.php/')
 .controller("InstituicaoController", function ($http, urlBase) {
     var self = this;
     self.instituicao = {};

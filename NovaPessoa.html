@@ -31,12 +31,12 @@
                     <a href="NovaRefeicao.html">Nova Refeição</a>
                 </li>
             </ul>
-        </nav>
+        </nav>        
         <!-- Page Content Holder -->
         <div id="content">
             <div class="container-fluid">
                 <div class="form-group col-xs-6 col-xs-offset-3">
-                    <h2 class="form-signin-heading">Nova instituição.</h2>  
+                    <h2 class="form-signin-heading">Nova pessoa.</h2>  
                 </div>
                 <form class="form-signin">
                     <div class="form-group col-xs-6 col-xs-offset-3">
@@ -49,31 +49,33 @@
                     </div>                    
                     <div class="form-group col-xs-6 col-xs-offset-3">
                         <label for="inputCelular" class="sr-only">Celular</label>
-                        <input type="text" id="inputCelular" name="celular" ng-model="ctrl.pessoa.telefone" class="form-control" placeholder="Celular" pattern="\([0-9]{2}\)[0-9]{4,6}-[0-9]{3,4}$" required>
+                        <input type="text" id="inputCelular" name="celular" ng-model="ctrl.pessoa.celular" class="form-control" placeholder="Celular" pattern="\([0-9]{2}\)[0-9]{4,6}-[0-9]{3,4}$" required>
                     </div>
                     <div class="form-group col-xs-6 col-xs-offset-3">
                         <label for="inputEnd" class="sr-only">Endereço</label>
                         <input type="text" id="inputEnd" name="endereco" ng-model="ctrl.pessoa.endereco" class="form-control" placeholder="Endereço" required >
                     </div>
                     <!-- busca as instituições e setar no select -->
-                    <div class="form-group col-xs-6 col-xs-offset-3">
-                        <label for="selectInstituicao" class="sr-only">Instituição</label>
-                        <select class="form-control" name="voce" for="selectInstituicao">
-                            <option>Instituição 1</option>
-                            <option>Instituição 2</option>
-                            <option>Instituição 3</option>
-                        </select>
-                    </div>                    
-                    <div class="form-group col-xs-6 col-xs-offset-3">            
-                        <button class="btn btn-lg btn-success btn-block" ng-click="ctrl.save()">Salvar</button>
-                    </div>
-                </form>                
-            </div>
+                    <div class="form-group col-xs-6 col-xs-offset-3" ng-controller="ListInstituicaoController as ctrlInst">
+                        <label for="selectInstituicao" class="sr-only">Instituição</label>                       
+                        <select
+                        ng-model="ctrl.pessoa.idInstituicao"
+                        ng-options="inst.id as inst.nome for inst in ctrlInst.instituicoes"
+                        class="form-control"
+                        >
+                        <option value="">Selecione uma instituição</option>                                    
+                    </select>
+                </div>                    
+                <div class="form-group col-xs-6 col-xs-offset-3">            
+                    <button class="btn btn-lg btn-success btn-block" ng-click="ctrl.save()">Salvar</button>
+                </div>
+            </form>
         </div>
     </div>
-    <!-- jQuery CDN -->
-    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-    <!-- Bootstrap Js CDN -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>        
+</div>
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<!-- Bootstrap Js CDN -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>        
 </body>
 </html>

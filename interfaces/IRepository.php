@@ -6,9 +6,9 @@
 */
 interface IRepository{
 	public function save($object);
-	public function find($cod);
+	public function find($id);
 	public function findAll();
-	public function delete($cod);
+	public function delete($id);
 	public function update($object);
 }
 ?>

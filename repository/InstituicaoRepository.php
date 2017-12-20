@@ -1,7 +1,8 @@
 <?php
-require '../persistence/connectiondatabase.php';
-require '../interfaces/irepository.php';
-require '../model/instituicao.php';
+require_once '../persistence/ConnectionDataBase.class.php';
+require_once '../interfaces/IRepository.php';
+require '../model/Instituicao.php';
+
 class InstituicaoRepository implements IRepository{
 
 	private $connection=null;
@@ -27,9 +28,9 @@ class InstituicaoRepository implements IRepository{
 		}
 	}
 
-	public function find($cod){
+	public function find($id){
 		try{
-			$stat = $this->connection->query("select * from instituicao where id = $cod");
+			$stat = $this->connection->query("select * from instituicao where id = $id");
 		  	$instituicao = $stat->fetchObject('Instituicao');
 		  	return $instituicao;
 		}catch(PDOException $ex){
@@ -49,7 +50,7 @@ class InstituicaoRepository implements IRepository{
 		}
 	}
 
-	public function delete($cod){
+	public function delete($id){
 		return "TODO";
 	}
 

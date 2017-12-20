@@ -1,8 +1,8 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 require '../Slim/Slim.php';
-require '../service/instituicaoservice.php';
-require '../service/pessoaservice.php';
+require '../service/InstituicaoService.php';
+require '../service/PessoaService.php';
 
 \Slim\Slim::registerAutoloader();
 $app = new \Slim\Slim();
@@ -26,8 +26,10 @@ $app->group('/instituicao',function() use ($app){
 		echo $instituicaoService->save($chamado);
 	});
 
-	$app->get('/findAll', function(){
+	$app->get('/findAll', function(){		
+
 		$instituicaoService = new InstituicaoService();
+
 		$instituicoes = $instituicaoService->findAll();		
 		echo json_encode($instituicoes);
 	});
@@ -52,6 +54,7 @@ $app->group('/pessoa',function() use ($app){
 	});
 
 	$app->get('/findAll', function(){
+
 		$pessoaService = new PessoaService();
 		$pessoas = $pessoaService->findAll();		
 		echo json_encode($pessoas);
