@@ -30,4 +30,3 @@ class PessoaService implements IService{
 
 	}
 }
-?>

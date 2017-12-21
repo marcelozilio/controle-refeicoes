@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="RefeicoesApp">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="js/angular.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- Our Custom CSS -->
@@ -11,7 +13,7 @@
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 </head>
-<body>
+<body ng-controller="ListRefeicaoController as ctrl">
     <div class="wrapper">
         <!-- Sidebar Holder -->
         <nav id="sidebar">
@@ -32,13 +34,12 @@
                     <a href="NovaRefeicao.html">Nova Refeição</a>
                 </li>
             </ul>
-        </nav>
-        <!-- Page Content Holder -->
+        </nav>        
         <div id="content">
-            <div class="form-group col-xs-6 col-xs-offset-3">
-                <h2>Refeição</h2>
-                <p>Data: 00/12/2017</p>
-                <p>IMG.</p>
+            <div class="form-group col-xs-6 col-xs-offset-3" style="background-color: #7386D5; border-radius: 5px;" ng-repeat="r in ctrl.refeicoes">
+                <h2>{{r.descricao}}</h2>
+                <p>Data: {{r.dataRefeicao | date:'dd/MM/yyyy'}}</p>
+                <p><img width="600px" ng-src="{{r.imagem}}"></p>
             </div>
         </div>
     </div>

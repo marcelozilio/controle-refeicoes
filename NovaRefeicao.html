@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="RefeicoesApp">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Nova Refeição</title>
+    <script src="js/angular.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- Our Custom CSS -->
@@ -12,7 +14,7 @@
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 </head>
-<body>
+<body ng-controller="RefeicaoController as ctrl">
     <div class="wrapper">
         <!-- Sidebar Holder -->
         <nav id="sidebar">
@@ -37,32 +39,31 @@
         <!-- Page Content Holder -->
         <div id="content">
             <div class="container-fluid">
-                <form method="POST" action="#" enctype="multipart/form-data">
+                <form class="form-signin">
                     <div class="form-group col-xs-6 col-xs-offset-3">
                         <h2 class="form-signin-heading">Nova refeição.</h2>
                     </div>                    
                     <div class="form-group col-xs-6 col-xs-offset-3">
                         <label for="inputDesc" class="sr-only">Descrição</label>
-                        <input type="text" id="inputDesc" name="descricao" class="form-control" placeholder="Descrição da refeição" required autofocus>
+                        <input type="text" id="inputDesc" name="descricao" ng-model="ctrl.refeicao.descricao" class="form-control" placeholder="Descrição da refeição" required autofocus>
                     </div>
                     <div class="form-group col-xs-6 col-xs-offset-3">
-                        <label for="inputData" class="sr-only">Data</label>
-                        <input type="date" id="inputData" class="form-control" name="nasc" required>
+                        <label for="inputData" class="sr-only">Data da Refeição</label>
+                        <input type="date" id="inputDataRefeicao" class="form-control" name="dataRefeicao" ng-model="ctrl.refeicao.dataRefeicao" required>
                     </div>
-                    <div class="form-group col-xs-6 col-xs-offset-3">
-                        <label for="selectInstituicao" class="sr-only">Instituição</label>
-                        <select class="form-control" name="voce" for="selectInstituicao">
-                            <option>Instituição 1</option>
-                            <option>Instituição 2</option>
-                            <option>Instituição 3</option>
+                    <div class="form-group col-xs-6 col-xs-offset-3" ng-controller="ListInstituicaoController as ctrlInst">
+                        <label for="selectInstituicao" class="sr-only">Instituição</label>                       
+                        <select ng-model="ctrl.refeicao.idInstituicao" ng-options="inst.id as inst.nome for inst in ctrlInst.instituicoes"
+                        class="form-control">
+                            <option value="">Selecione uma instituição</option>
                         </select>
-                    </div>
+                    </div>     
                     <div class="form-group col-xs-6 col-xs-offset-3">
                         <label for="exampleInputFile">Foto da Refeição</label>
-                        <input type="file" name="file[]" id="rgecpf" required>
+                        <input type="file" name="foto" id="foto" fileread="ctrl.refeicao.imagem" required>
                     </div>
                     <div class="form-group col-xs-6 col-xs-offset-3"> 
-                        <button class="btn btn-lg btn-success btn-block" type="submit" href="#">Salvar</button>
+                        <button class="btn btn-lg btn-success btn-block" ng-click="ctrl.save()">Salvar</button>
                     </div>                
                 </form>
             </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="Refeicoes">
+<html ng-app="RefeicoesApp">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,16 +47,14 @@
                         <thead>
                             <th>Nome</th>
                             <th>E-mail</th>
-                            <th>Celular</th>
-                            <th>Endereço</th>
+                            <th>Celular</th>                            
                             <th>Ações</th>
                         </thead>
                         <tbody>
                             <tr ng-repeat="p in ctrl.pessoas">
                             <td>{{p.nome}}</td>
                             <td>{{p.email}}</td>
-                            <td>{{p.celular}}</td>
-                            <td>{{p.endereco}}</td>
+                            <td>{{p.celular}}</td>                            
                             <td style="width: 130px">
                                 <a href="NovaInstituicao.html" class="btn btn-sm btn-warning glyphicon glyphicon-pencil"></a>
                                 <a href="NovaInstituicao.html" class="btn btn-sm btn-danger glyphicon glyphicon-trash"></a>

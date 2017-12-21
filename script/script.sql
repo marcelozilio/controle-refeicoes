@@ -22,11 +22,12 @@ create table pessoa(
 );
 
 create table refeicao(
-	id int auto_increment,
+	id int auto_increment,	
 	idInstituicao int not null,
 	descricao varchar(100) not null,
 	dataCadastro datetime not null,
 	dataRefeicao datetime not null,
+	imagem longtext not null,
 	primary key (id),
 	foreign key (idInstituicao) references instituicao(id)
 );
@@ -35,5 +36,6 @@ create table foto(
 	id int auto_increment,
 	idRefeicao int not null,
 	foto varchar(500) not null,
+	nome varchar(60),
 	primary key (id)
 );
