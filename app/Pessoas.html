@@ -33,7 +33,7 @@
             </ul>
         </nav>
         <!-- Page Content Holder -->
-        <div id="content">
+        <div id="content" ng-cloak>
             <div class="container-fluid">                
                 <div class="form-group col-xs-6 col-xs-offset-3">
                     <h2 class="form-signin-heading">Lista de pessoas.</h2>  
@@ -51,7 +51,7 @@
                             <th>Ações</th>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="p in ctrl.pessoas">
+                            <tr ng-repeat="p in ctrl.pessoas track by $index">
                             <td>{{p.nome}}</td>
                             <td>{{p.email}}</td>
                             <td>{{p.celular}}</td>                            

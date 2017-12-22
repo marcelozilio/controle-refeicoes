@@ -1,6 +1,6 @@
 <?php
-require_once '../repository/InstituicaoRepository.php';
-require_once '../interfaces/IService.php';
+require_once 'repository/InstituicaoRepository.php';
+require_once 'interfaces/IService.php';
 
 /**
  *

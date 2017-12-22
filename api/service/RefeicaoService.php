@@ -1,9 +1,9 @@
 <?php
-require_once '../repository/RefeicaoRepository.php';
-require_once '../interfaces/IService.php';
-require_once '../util/EmailUtil.php';
-require_once '../util/Validacao.php';
-require_once '../model/RestResponse.php';
+require_once 'repository/RefeicaoRepository.php';
+require_once 'interfaces/IService.php';
+require_once 'util/EmailUtil.php';
+require_once 'util/Validacao.php';
+require_once 'dto/RestResponse.php';
 
 /**
  *

@@ -1,4 +1,5 @@
 <?php
+require_once 'service/InstituicaoService.php';
 
 $app->post('/save', function () use ($app) {
     try {

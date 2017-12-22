@@ -1,7 +1,7 @@
 <?php
-require_once '../persistence/ConnectionDataBase.class.php';
-require_once '../interfaces/IRepository.php';
-require_once '../model/Pessoa.php';
+require_once 'persistence/ConnectionDataBase.class.php';
+require_once 'interfaces/IRepository.php';
+require_once 'model/Pessoa.php';
 
 /**
  *

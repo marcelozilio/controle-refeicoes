@@ -1,4 +1,5 @@
 <?php
+require_once 'service/PessoaService.php';
 
 $app->post('/save', function () use ($app) {
     try {

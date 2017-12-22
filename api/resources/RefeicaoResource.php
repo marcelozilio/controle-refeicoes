@@ -1,4 +1,5 @@
 <?php
+require_once 'service/RefeicaoService.php';
 
 $app->post('/save', function () use ($app) {
     try {
