@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="RefeicoesApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Pessoas</title>
+    <script src="js/angular.js"></script>
+    <script src="js/app.js" type="text/javascript"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style2.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css" rel="stylesheet">
+</head>
+<body ng-controller="ListPessoaController as ctrl">
+    <div class="wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Controle de Refeição</h3>
+            </div>
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="index.html">Início</a>
+                </li>
+                <li>
+                    <a href="Pessoas.html">Pessoas</a>
+                </li>
+                <li>
+                    <a href="Instituicoes.html">Instituições</a>
+                </li>
+                <li>
+                    <a href="NovaRefeicao.html">Nova Refeição</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- Page Content Holder -->
+        <div id="content">
+            <div class="container-fluid">                
+                <div class="form-group col-xs-6 col-xs-offset-3">
+                    <h2 class="form-signin-heading">Lista de pessoas.</h2>  
+                </div>
+                <div class="form-group col-xs-2 col-xs-offset-10">
+                    <a class="btn btn-default btn-primary btn-block" href="NovaPessoa.html">Nova Pessoa</a>
+                </div>
+                <div class="form-group col-xs-12">                    
+                    <input class="form-control" name="pesquisa" type="text" placeholder="O que você está procurando?">
+                    <table class="table table-striped">
+                        <thead>
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>Celular</th>                            
+                            <th>Ações</th>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="p in ctrl.pessoas">
+                            <td>{{p.nome}}</td>
+                            <td>{{p.email}}</td>
+                            <td>{{p.celular}}</td>                            
+                            <td style="width: 130px">
+                                <a class="btn btn-sm btn-warning glyphicon glyphicon-pencil" href="#"></a>
+                                <a class="btn btn-sm btn-danger glyphicon glyphicon-trash" ng-click="ctrl.delete(p.id)"></a>
+                                <a class="btn btn-sm btn-success glyphicon glyphicon-search" href="#"></a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <!-- Bootstrap Js CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>        
+</body>
+</html>

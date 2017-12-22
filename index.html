@@ -1,54 +1,14 @@
 <!DOCTYPE html>
-<html ng-app="RefeicoesApp">
+<html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <script src="js/angular.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
-    <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/
-    jquery.mCustomScrollbar.min.css">
-    <link rel="stylesheet" href="css/style2.css">
+    <meta http-equiv="refresh" content="0; url=./app/">
 </head>
-<body ng-controller="ListRefeicaoController as ctrl">
-    <div class="wrapper">
-        <!-- Sidebar Holder -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3>Controle de Refeição</h3>
-            </div>
-            <ul class="list-unstyled components">
-                <li>
-                    <a href="index.html">Início</a>
-                </li>
-                <li>
-                    <a href="Pessoas.html">Pessoas</a>
-                </li>
-                <li>
-                    <a href="Instituicoes.html">Instituições</a>
-                </li>
-                <li>
-                    <a href="NovaRefeicao.html">Nova Refeição</a>
-                </li>
-            </ul>
-        </nav>        
-        <div id="content">
-            <div class="form-group col-xs-6 col-xs-offset-3">
-                    <h2 class="form-signin-heading">Lista de refeições.</h2>  
-                </div>
-            <div class="form-group col-xs-7 col-xs-offset-3" style="background-color: #7386D5; border-radius: 5px;" ng-repeat="r in ctrl.refeicoes">
-                <h2>{{r.descricao}}</h2>
-                <p>Data de cadastro: {{r.dataCadastro | date:'dd/MM/yyyy'}}</p>
-                <p>Data da refeição: {{r.dataRefeicao | date:'dd/MM/yyyy'}}</p>
-                <p><img width="600px" height="400" ng-src="{{r.imagem}}"></p>
-            </div>
-        </div>
-    </div>
-    <!-- jQuery CDN -->
-    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-    <!-- Bootstrap Js CDN -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<body>
+    <p>
+        <a href="./app/">Entrar no Sistemas</a>
+    </p>
 </body>
 </html>
