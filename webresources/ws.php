@@ -19,19 +19,36 @@ Serviços de Instituicao
 $app->group('/instituicao',function() use ($app){	
 
 	$app->post('/save', function() use ($app) {
-		$request = $app->request();
-		$chamado = json_decode($request->getBody());
-		$service = new InstituicaoService();
-		echo $service->save($chamado);
+		try {
+			$request = $app->request();
+			$chamado = json_decode($request->getBody());
+			$service = new InstituicaoService();
+			echo json_encode($service->save($chamado));
+		} catch (Exception $e) {
+			echo json_encode($e->getMessage());
+		}
+
 	});
 
-	$app->get('/findAll', function(){		
-		$service = new InstituicaoService();
-		$instituicoes = $service->findAll();		
-		echo json_encode($instituicoes);
+	$app->get('/findAll', function(){
+		try {
+			$service = new InstituicaoService();
+			$instituicoes = $service->findAll();
+			echo json_encode($instituicoes);
+		} catch (Exception $e) {
+			echo json_encode($e->getMessage());
+		}		
+
 	});
 
 	$app->get('/delete/:id', function($id) {
+		try {
+			$service = new InstituicaoService();
+			echo json_encode($service->delete($id));
+		} catch (Exception $e) {
+			echo json_encode($e->getMessage());
+		}
+		
 	});
 });
 
@@ -41,19 +58,36 @@ Serviços de Pessoa
 $app->group('/pessoa',function() use ($app){	
 
 	$app->post('/save', function() use ($app) {
-		$request = $app->request();
-		$pessoa = json_decode($request->getBody());
-		$service = new PessoaService();
-		echo $service->save($pessoa);
+		try{
+			$request = $app->request();
+			$pessoa = json_decode($request->getBody());
+			$service = new PessoaService();
+			echo json_encode($service->save($pessoa));
+		} catch (Exception $e) {
+			echo json_encode($e->getMessage());
+		}
+
 	});
 
 	$app->get('/findAll', function(){
-		$service = new PessoaService();
-		$pessoas = $service->findAll();		
-		echo json_encode($pessoas);
+		try {
+			$service = new PessoaService();
+			$pessoas = $service->findAll();
+			echo json_encode($pessoas);
+		} catch (Exception $e) {
+			echo json_encode($e->getMessage());
+		}
+
 	});
 
 	$app->get('/delete/:id', function($id) {
+		try {
+			$service = new PessoaService();
+			echo json_encode($service->delete($id));
+		} catch (Exception $e) {
+			echo json_encode($e->getMessage());
+		}
+		
 	});
 });
 
@@ -63,10 +97,15 @@ Serviços de Instituicao
 $app->group('/refeicao',function() use ($app){	
 
 	$app->post('/save', function() use ($app) {
-		$request = $app->request();
-		$refeicao = json_decode($request->getBody());
-		$service = new RefeicaoService();
-		echo $service->save($refeicao);
+		try{
+			$request = $app->request();
+			$refeicao = json_decode($request->getBody());
+			$service = new RefeicaoService();
+			echo json_encode($service->save($refeicao));
+		}catch(Exception $e){
+			echo json_encode($e->getMessage());
+		}
+
 	});
 
 	$app->get('/findAll', function(){		
@@ -76,7 +115,13 @@ $app->group('/refeicao',function() use ($app){
 	});
 
 	$app->get('/delete/:id', function($id) {
-
+		try {
+			$service = new RefeicaoService();
+			echo json_encode($service->delete($id));
+		} catch (Exception $e) {
+			echo json_encode($e->getMessage());
+		}
+		
 	});
 });
 

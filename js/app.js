@@ -5,7 +5,7 @@ angular
 
 angular
 .module(appName)
-.value('wsUrl', 'http://localhost:8080/ControleRefeicoes/webresources/ws.php/');
+.value('wsUrl', 'http://localhost/ControleRefeicoes/webresources/ws.php/');
 
 angular
 .module(appName)
@@ -64,9 +64,17 @@ angular
     var vm = this;
     vm.instituicao = {};
 
+    vm.clear = function () {
+        document.getElementById("inputNome").value = "";
+        document.getElementById("inputEmail").value = "";
+        document.getElementById("inputTelefone").value = "";
+        document.getElementById("inputEnd").value = "";      
+    };
+
     vm.save = function () {        
         WSService.post('instituicao/save', vm.instituicao)
         .then(function(response) {
+            vm.clear();
             alert(response.data);
         }, function(error) {
             alert(error.data);
@@ -103,11 +111,19 @@ angular
     vm.save = function () {        
         WSService.post('pessoa/save', vm.pessoa)
         .then(function(response) {
-            alert(response.data);
+            alert(response.data); 
+            vm.clear();           
         }, function(error) {
             alert(error.data);
         });
     };
+
+    vm.clear = function () {
+        document.getElementById("inputNome").value = "";
+        document.getElementById("inputEmail").value = "";
+        document.getElementById("inputCelular").value = "";        
+    };
+
 });
 
 angular
@@ -125,6 +141,16 @@ angular
         });
     };
 
+    vm.delete = function (id) {        
+        WSService.get('pessoa/delete/' + id)
+        .then(function(response) {
+            vm.findAll();
+            alert(response.data);
+        }, function(error) {
+            alert(error.data);
+        });        
+    };
+
     vm.$onInit = function () {
         vm.findAll();
     };
@@ -135,16 +161,21 @@ angular
 .controller("RefeicaoController", function (WSService) {
     var vm = this;
     vm.refeicao = {};
-
     vm.save = function () { 
         vm.refeicao.dataCadastro = new Date();       
-
         WSService.post('refeicao/save', vm.refeicao)
-        .then(function(response) {
+        .then(function(response) { 
+            vm.clear();           
             alert(response.data);
         }, function(error) {
             alert(error.data);
         });
+    };
+
+    vm.clear = function () {
+        document.getElementById("inputDesc").value = "";
+        document.getElementById("inputDataRefeicao").value = "";
+        document.getElementById("foto").value = "";        
     };
 });
 
@@ -153,11 +184,12 @@ angular
 .controller("ListRefeicaoController", function (WSService) {
     var vm = this;
     vm.refeicoes = [];
+    vm.instituicao = {};
 
     vm.findAll = function () {
         WSService.get('refeicao/findAll')
         .then(function(response) {
-            vm.refeicoes = response.data;
+            vm.refeicoes = response.data;            
         }, function(error) {
             alert(error.data);
         });

@@ -22,9 +22,9 @@ class PessoaRepository implements IRepository{
 
 			$stat->execute();
 			$this->connection = null;
-			return 'Pessoa cadastrada!tetstetete';
-		}catch(PDOException $ex){
-			return 'Erro ao cadastrar Pessoa!';
+			return 'Pessoa cadastrada!';
+		}catch(Exception $ex){
+			throw new Exception('Erro ao cadastrar Pessoa!');
 		}
 	}
 
@@ -33,8 +33,8 @@ class PessoaRepository implements IRepository{
 			$stat = $this->connection->query("select * from pessoa where id = $id");
 			$pessoa = $stat->fetchObject('Pessoa');
 			return $pessoa;
-		}catch(PDOException $ex){
-			return 'Erro ao buscar Pessoa!';
+		}catch(Exception $ex){
+			throw new Exception('Erro ao buscar Pessoa!');			
 		}
 	}
 
@@ -45,17 +45,25 @@ class PessoaRepository implements IRepository{
 			$array = $stat->fetchAll(PDO::FETCH_OBJ);
 			$this->connection = null;
 			return $array;
-		}catch(PDOException $ex){
-			return 'Erro ao buscar Pessoas!';
+		}catch(Exception $ex){
+			throw new Exception('Erro ao buscar Pessoas!');					
 		}
 	}
 
 	public function delete($id){
-		return "TODO";
+		try{
+			$stat = $this->connection->prepare("delete from pessoa where id=?");
+			$stat->bindValue(1,$id);		
+			$stat->execute();			
+			$this->connection = null;
+			return 'Pessoa deletada com sucesso';
+		}catch(Exception $e){
+			throw new Exception('Erro ao deletar pessoa!');
+		}
 	}
 
 	public function update($object){
-		return "TODO";
+		return 'todo';
 	}
 }
 ?>

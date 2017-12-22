@@ -14,17 +14,16 @@ class InstituicaoRepository implements IRepository{
 	public function save($object){
 		try{
 			$stat=$this->connection->prepare("insert into instituicao(id,nome,endereco,email,telefone)values(null,?,?,?,?)");
-
 			$stat->bindValue(1,$object->nome);
 			$stat->bindValue(2,$object->endereco);
 			$stat->bindValue(3,$object->email);
 			$stat->bindValue(4,$object->telefone);		
-			
+		
 			$stat->execute();
 			$this->connection = null;
 			return 'Instituição cadastrada!';
-		}catch(PDOException $ex){
-			return 'Erro ao cadastrar Instituição!';
+		}catch(Exception $ex){
+			throw new Exception('Erro ao cadastrar Instituição!');
 		}
 	}
 
@@ -33,8 +32,8 @@ class InstituicaoRepository implements IRepository{
 			$stat = $this->connection->query("select * from instituicao where id = $id");
 		  	$instituicao = $stat->fetchObject('Instituicao');
 		  	return $instituicao;
-		}catch(PDOException $ex){
-			return 'Erro ao buscar Instituição!';
+		}catch(Exception $ex){
+			throw new Exception('Erro ao buscar Instituição!');
 		}
 	}
 
@@ -45,17 +44,25 @@ class InstituicaoRepository implements IRepository{
 			$array = $stat->fetchAll(PDO::FETCH_OBJ);
 			$this->connection = null;
 			return $array;
-		}catch(PDOException $ex){
-			return 'Erro ao buscar Instituições!';
+		}catch(Exception $ex){
+			throw new Exception('Erro ao buscar Instituições!');
 		}
 	}
 
 	public function delete($id){
-		return "TODO";
+		try{
+			$stat = $this->connection->prepare("delete from instituicao where id=?");
+			$stat->bindValue(1,$id);		
+			$stat->execute();			
+			$this->connection = null;
+			return 'Instituição deletada com sucesso';
+		}catch(Exception $e){
+			throw new Exception('Erro ao deletar Instituição!');
+		}
 	}
 
 	public function update($object){
-		return "TODO";
+		return 'todo';
 	}
 }
 ?>

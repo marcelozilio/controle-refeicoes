@@ -23,8 +23,8 @@ class RefeicaoRepository implements IRepository{
 			$stat->execute();
 			$this->connection = null;
 			return 'Refeicao cadastrada!';
-		}catch(PDOException $ex){
-			return 'Erro ao cadastrar Refeicao!';
+		}catch(Exception $ex){
+			throw new Exception('Erro ao cadastrar Refeicao!');
 		}
 	}
 
@@ -33,8 +33,8 @@ class RefeicaoRepository implements IRepository{
 			$stat = $this->connection->query("SELECT * FROM refeicao WHERE id = $id");
 			$refeicao = $stat->fetchAll(PDO::FETCH_OBJ);			
 			return $refeicao;			
-		}catch(PDOException $ex){
-			return 'Erro ao buscar Refeicao!';
+		}catch(Exception $ex){
+			throw new Exception('Erro ao buscar Refeicao!');
 		}
 	}
 
@@ -45,13 +45,21 @@ class RefeicaoRepository implements IRepository{
 			$array = $stat->fetchAll(PDO::FETCH_OBJ);
 			$this->connection = null;
 			return $array;
-		}catch(PDOException $ex){
-			return 'Erro ao buscar Refeicoes!';
+		}catch(Exception $ex){
+			throw new Exception('Erro ao buscar Refeicoes!');
 		}
 	}
 
 	public function delete($id){
-		return "TODO";
+		try{
+			$stat = $this->connection->prepare("delete from refeicao where id=?");
+			$stat->bindValue(1,$id);		
+			$stat->execute();			
+			$this->connection = null;
+			return 'Refeicao deletada com sucesso';
+		}catch(Exception $e){
+			throw new Exception('Erro ao deletar refeicao');
+		}
 	}
 
 	public function update($object){
