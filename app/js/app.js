@@ -72,7 +72,7 @@ angular
     };
 
     vm.save = function () {        
-        WSService.post('/instituicao/save', vm.instituicao)
+        WSService.post('instituicao/save', vm.instituicao)
         .then(function(response) {
             vm.clear();
             alert(response.data);
@@ -89,7 +89,7 @@ angular
     vm.instituicoes = [];
 
     vm.findAll = function () {
-        WSService.get('/instituicao/findAll')
+        WSService.get('instituicao/findAll')
         .then(function(response) {
             vm.instituicoes = response.data;
         }, function(error) {
@@ -109,7 +109,7 @@ angular
     vm.pessoa = {};
 
     vm.save = function () {        
-        WSService.post('/pessoa/save', vm.pessoa)
+        WSService.post('pessoa/save', vm.pessoa)
         .then(function(response) {
             alert(response.data); 
             vm.clear();           
@@ -133,7 +133,7 @@ angular
     vm.pessoas = [];
 
     vm.findAll = function () {
-        WSService.get('/pessoa/findAll')
+        WSService.get('pessoa/findAll')
         .then(function(response) {
             vm.pessoas = response.data;
         }, function(error) {
@@ -142,7 +142,7 @@ angular
     };
 
     vm.delete = function (id) {        
-        WSService.get('/pessoa/delete/' + id)
+        WSService.get('pessoa/delete/' + id)
         .then(function(response) {
             vm.findAll();
             alert(response.data);
@@ -163,7 +163,7 @@ angular
     vm.refeicao = {};
     vm.save = function () { 
         vm.refeicao.dataCadastro = new Date();       
-        WSService.post('/refeicao/save', vm.refeicao)
+        WSService.post('refeicao/save', vm.refeicao)
         .then(function(response) { 
             vm.clear();           
             alert(response.data);
@@ -187,7 +187,7 @@ angular
     vm.instituicao = {};
 
     vm.findAll = function () {
-        WSService.get('/refeicao/findAll')
+        WSService.get('refeicao/findAll')
         .then(function(response) {
             vm.refeicoes = response.data;            
         }, function(error) {
